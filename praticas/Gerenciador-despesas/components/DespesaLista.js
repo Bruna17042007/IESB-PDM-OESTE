@@ -1,0 +1,19 @@
+import { FlatList } from 'react-native';
+import DespesaItem from './DespesaItem';
+
+export default function DespesaLista({ despesas }) {
+  return (
+    <FlatList
+      data={despesas}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => (
+        <DespesaItem
+          descricao={item.descricao}
+          valor={item.valor}
+          data={item.data}
+          categoria={item.categoria}
+        />
+      )}
+    />
+  );
+}
